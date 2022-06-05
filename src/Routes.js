@@ -1,15 +1,16 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
-import Home from "./Pages/Dashboard";
+import Home from "./Pages/Home";
 
 const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Home} />
-        {/* <Route path="/users" component={Page2} />
-        <Route path="/contact" component={Page3} /> */}
+        <Route path="/page=:paginate/" exact component={Home} />
+        <Route path="/user=:username/id=:idUser/page=:paginate/" exact component={Home} />
+        <Redirect to={`/page=1/`} exact component={Home} />
       </Switch>
     </Router>
   );
